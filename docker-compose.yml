@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  defaultapi:
+    image: ${DOCKER_REGISTRY-}defaultapi
+    build:
+      context: .
+      dockerfile: DefaultAPI/Dockerfile
+    ports:
+      - "44321:443"
+  defaultapi-frontend:
+    image: ${DOCKER_REGISTRY-}defaultapi-frontend
+    build:
+      context: ./DefaultAPI-Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - defaultapi

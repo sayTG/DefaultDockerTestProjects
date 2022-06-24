@@ -1,0 +1,9 @@
+<div>Title: {{title}}</div>
+<div>Base Url: {{base}}</div>
+<div>
+    <div>
+        <button (click)="fetchRequest()">GET</button> {{ URL }}
+    </div>
+  <textarea readonly *ngIf="response" [value]="response">
+    </textarea>
+</div>
